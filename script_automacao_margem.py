@@ -1,6 +1,5 @@
 
 import time
-import pandas as pd
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
@@ -50,12 +49,13 @@ for row in range(2, ws.max_row + 1):
         )
         campo_cpf.clear()
         campo_cpf.send_keys(str(cpf))
-        campo_cpf.send_keys(Keys.ENTER)
+        botao_pesquisar = driver.find_element(By.NAME, "botaoPesquisar")
+        botao_pesquisar.click()
 
         time.sleep(3)
 
         # Localiza a tabela de margens
-        tabela = driver.find_element(By.XPATH, "//table[@id='formConsultaMargem:j_idt37']")
+        tabela = driver.find_element(By.XPATH, "//div[@id='painelMargensDisponiveis']")
         linhas = tabela.find_elements(By.TAG_NAME, "tr")
 
         valores = {}
