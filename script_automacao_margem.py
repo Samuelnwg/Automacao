@@ -11,7 +11,7 @@ from webdriver_manager.chrome import ChromeDriverManager
 import openpyxl
 
 # === CONFIGURAÇÕES ===
-CAMINHO_PLANILHA = "Samuel C..xlsx"
+CAMINHO_PLANILHA = "GOV SP.xlsx"
 ABA = "GOVSP"
 COLUNA_CPF = "CPF "
 COLUNA_OBSERVACAO = "Observação"
@@ -52,7 +52,7 @@ for row in range(2, ws.max_row + 1):
         botao_pesquisar = driver.find_element(By.NAME, "botaoPesquisar")
         botao_pesquisar.click()
 
-        time.sleep(3)
+        time.sleep(5)
 
         # Localiza a tabela de margens
         tabela = driver.find_element(By.XPATH, "//div[@id='painelMargensDisponiveis']")
@@ -77,7 +77,7 @@ for row in range(2, ws.max_row + 1):
             resultado = f"{fac:.2f}".replace(".", ",")
         elif cc >= 30 or cb >= 30:
             maior = max(cc, cb)
-            resultado = f"{maior:.2f}".replace(".", ",", " ", maior)
+            resultado = f"{maior:.2f}".replace(".", ",", maior)
         else:
             resultado = "Sem margem"
 
